@@ -20,6 +20,11 @@ public class HelloController {
         return "Hello" + name + "!";
     }
 
+    @RequestMapping(value = {"query"}, method = RequestMethod.GET)
+    public String name(@RequestParam(value = "name") String name){
+        return "Hello" + name + "!";
+    }
+
 
 }
 
