@@ -1,14 +1,25 @@
 package com.example.myFirstProject;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/")
 public class HelloController {
-    @GetMapping("/hello/query")
-    public String hello(@RequestParam(name = "name", defaultValue = "World") String name)
-    {
-        return "Hello " + name + " from BridgeLabz";
+    @GetMapping("/web")
+    public String hello() {
+        return "Hello Web";
     }
+
+    @GetMapping("web/message")
+    public String message() {
+        return "Leads To Message Path";
+    }
+
+    @GetMapping("/param/{name}")
+    public String nameParam(@PathVariable String name){
+        return "Hello" + name + "!";
+    }
+
+
 }
+
