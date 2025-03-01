@@ -1,5 +1,6 @@
 package com.example.myFirstProject;
 
+import NamePost.User;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -24,6 +25,13 @@ public class HelloController {
     public String name(@RequestParam(value = "name") String name){
         return "Hello" + name + "!";
     }
+
+    @PostMapping("/Post")
+    public String namePost(@RequestBody User user){
+        return "Hello" + " "  + user.getFirstName() + " " + user.getLastName() + " " + "!";
+    }
+
+
 
 
 }
